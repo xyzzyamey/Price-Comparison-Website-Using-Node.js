@@ -1,0 +1,488 @@
+<link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+  .card
+  {
+	  
+	  margin:15px;
+	  border-radius:15px;
+  }
+  img
+  {
+	  height:180px;
+  }
+  span
+  {
+	  font-weight:bolder;
+	  font-size: large;
+  }
+  #visitsite
+  {
+	  text-decoration:none;
+	  color:white;
+  }
+  .card-text
+  {
+	  font-weight:bolder;
+	  font-size: large;
+  }
+  .border
+  {
+	  border-width: 20px;
+  }
+  
+</style>  
+  <!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark btn-dark">
+
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="#">PriceComparison</a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Contact Us</a>
+        <div class="dropdown-menu dropdown-dark" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Phone: +918096534572</a>
+          <a class="dropdown-item" href="https://mail.google.com/mail/u/0/#inbox?compose=jrjtXJRtmhGtRvZxntqSNqnwXxBHWQgwXRRpcZnfnJLcSFrZJZZkmdSkXLCTTDvjDNVqBKlg">Email: abcd@gmail.com</a>
+        </div>
+      </li>
+
+    </ul>
+    <!-- Links -->
+
+    <div class="form-inline">
+      <div class="md-form my-0">
+        <a href = '#' id='visitsite'>Logout</a>
+      </div>
+    </div>
+  </div>
+  <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->
+<br><br>
+<form class="form-inline d-flex justify-content-center md-form form-sm mt-0"  method="POST" action="/">
+  <i class="fas fa-search" aria-hidden="true"></i>
+  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" name="searchtext" value=""
+    aria-label="Search"><br><br>
+  <input class="btn btn-dark btn-rounded " type="submit" value="Search">
+</form>
+
+<!--Section: Group of personal cards-->
+<section class="pt-5 mt-3 pb-3">
+
+  <!--Grid row-->
+  <div class="row">
+
+    <!--Grid column-->
+    <div class="col-md-12">
+
+      <!--Card group-->
+      <div class="card-group">
+
+        <!--Card-->
+        <div class="card card-personal mb-4 border border-primary">
+
+          <!--Card image-->
+          <div class="view">
+            <img class="card-img-top" src="images\flp.jpg" alt="Card image cap">
+            <a href="https://www.flipkart.com">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body">
+            <!--Title-->
+            <a>
+              <h4 class="card-title">flipkart.com</h4>
+            </a>
+            <a class="card-meta">Search Results</a>
+
+            <!--Text-->
+            <p class="card-text">
+
+            <% flp_str="" %>
+            <% for(i=0;i<flipkart.length;i++){ %>
+                <% if(flipkart[i].item==undefined || flipkart[i].price==undefined){flipkart[i].item=" ";flipkart[i].price=" ";continue;} %>
+                <% flp_str+=`${flipkart[i].item} <span class='float-right' > ${flipkart[i].price} </span><br><br>` %>
+            <% } %>
+            <%- flp_str %>
+            <hr><a href= <%= links[0] %>><button type="button" class="btn btn-primary">Visit Flipkart</button></a>
+
+			</p>
+           
+            
+          </div>
+          <!--Card content-->
+
+        </div>
+        <!--Card-->
+
+        <!--Card-->
+        <div class="card card-personal mb-4 border border-warning">
+
+          <!--Card image-->
+          <div class="view">
+            <img class="card-img-top" src="images\amz.jpg" alt="Card image cap">
+            <a href="https://www.amazon.com">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body">
+            <!--Title-->
+            <a>
+              <h4 class="card-title">amazon.com</h4>
+            </a>
+            <a class="card-meta">Search Results</a>
+
+            <!--Text-->
+            <p class="card-text">
+		
+			
+                <% amz_str="" %>
+                <% for(i=0;i<amazon.length;i++){ %>
+                  <% if(amazon[i].item==undefined || amazon[i].price==undefined){amazon[i].item=" ";amazon[i].price=" ";continue;} %>
+                    <% amz_str+=`${amazon[i].item} <span class='float-right' > ${amazon[i].price} </span><br><br>` %>
+                <% } %>
+                <%- amz_str %>	
+                <hr><a href = <%= links[1] %>><button type="button" class="btn btn-deep-orange">Visit Amazon</button>	
+			
+			</p>
+           
+          </div>
+          <!--Card content-->
+
+        </div>
+        <!--Card-->
+
+        <!--Card-->
+        <div class="card card-personal mb-4 border border-danger">
+
+          <!--Card image-->
+          <div class="view">
+            <img class="card-img-top" src="images\vijay-sales.jpeg" alt="Card image cap">
+            <a href="https://www.vijaysales.com">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body">
+           
+            <a>
+              <h4 class="card-title">vijaysales.com</h4>
+            </a>
+            <a class="card-meta">Search Results</a>
+
+           
+            <p class="card-text">
+			
+			
+                <% vijay_str="" %>
+                <% for(i=0;i<vijay.length;i++){ %>
+                    <% if(vijay[i].item==undefined || vijay[i].price==undefined){vijay[i].item=" ";vijay[i].price=" ";continue;} %>
+                    <% vijay_str+=`${vijay[i].item} <span class='float-right' > ${vijay[i].price} </span><br><br>` %>
+                <% } %>
+                <%- vijay_str %>
+                <hr><a href = <%= links[2] %>><button type="button" class="btn btn-danger">Visit Vijay Sales</button>
+			
+			
+			
+			</p>
+			
+			
+			
+          </div>
+          <!--Card content-->
+
+        </div>
+        <!--Card-->
+
+      </div>
+      <!--Card group-->
+
+    </div>
+    <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+  
+  <div class="row">
+
+    <!--Grid column-->
+    <div class="col-md-12">
+
+      <!--Card group-->
+      <div class="card-group">
+
+        <!--Card-->
+        <div class="card card-personal mb-4 border border-danger">
+
+          <!--Card image-->
+          <div class="view">
+            <img class="card-img-top" src="images\snp.png" alt="Card image cap">
+            <a href="https://www.snapdeal.com">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body">
+            <!--Title-->
+            <a>
+              <h4 class="card-title">snapdeal.com</h4>
+            </a>
+            <a class="card-meta">Search Results</a>
+
+            <!--Text-->
+            <p class="card-text">
+                <% snap_str="" %>
+                <% for(i=0;i<snapdeal.length;i++){ %>
+                  <% if(snapdeal[i].item==undefined || snapdeal[i].price==undefined){snapdeal[i].item=" ";snapdeal[i].price=" ";continue;} %>
+                    <% snap_str+=`${snapdeal[i].item} <span class='float-right' > ${snapdeal[i].price} </span><br><br>` %>
+                <% } %>
+                <%- snap_str %>
+                <hr><a href= <%= links[3] %> id="visitsite"><button type="button" class="btn btn-danger">Visit Snapdeal</button>
+			
+			
+			
+			</p>
+          
+            
+          </div>
+          <!--Card content-->
+
+        </div>
+        <!--Card-->
+
+        <!--Card-->
+        <div class="card card-personal mb-4 border border-warning">
+
+          <!--Card image-->
+          <div class="view">
+            <img class="card-img-top" src="images\paytm.png" alt="Card image cap">
+            <a href="https://www.paytmmall.com">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body">
+            <!--Title-->
+            <a>
+              <h4 class="card-title">paytmmall.com</h4>
+            </a>
+            <a class="card-meta">Search Results</a>
+
+            <!--Text-->
+            <p class="card-text">
+			
+			
+                <% pay_str="" %>
+                <% for(i=0;i<patym.length;i++){ %>
+                    <% if(patym[i].item==undefined || patym[i].price==undefined){patym[i].item=" ";patym[i].price=" ";continue;} %>
+                    <% pay_str+=`${patym[i].item} <span class='float-right' > ${patym[i].price} </span><br><br>` %>
+                <% } %>
+                <%- pay_str %>
+                <hr><a href = <%= links[4] %>><button type="button" class="btn btn-deep-orange">Visit Paytm Mall</button></a>
+				
+			</p>
+          </div>
+          <!--Card content-->
+
+        </div>
+        <!--Card-->
+
+        <!--Card-->
+        <div class="card card-personal mb-4 border border-primary">
+
+          <!--Card image-->
+          <div class="view">
+            <img class="card-img-top" src="images\gadget.png" alt="Card image cap">
+            <a href="https://www.gadgetsnow.com">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card image-->
+
+          <!--Card content-->
+          <div class="card-body">
+           
+            <a>
+              <h4 class="card-title">gadgetsnow.com</h4>
+            </a>
+            <a class="card-meta">Search Results</a>
+
+           
+            <p class="card-text">
+			
+			
+                <% gadget_str="" %>
+                <% for(i=0;i<gadget.length;i++){ %>
+                    <% if(gadget[i].item==undefined || gadget[i].price==undefined){gadget[i].item=" ";gadget[i].price=" ";continue;} %>
+                    <% gadget_str+=`${gadget[i].item} <span class='float-right' > ${gadget[i].price} </span><br><br>` %>
+                <% } %>
+                <%- gadget_str %>
+                <hr><a href = <%= links[5] %>><button type="button" class="btn btn-primary">Visit Gadgets Now</button></a>
+			
+			
+			</p>
+			
+			
+			
+   
+          </div>
+          <!--Card content-->
+
+        </div>
+        <!--Card-->
+
+      </div>
+      <!--Card group-->
+
+    </div>
+    <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
+</section>
+<!--Section: Group of personal cards-->
+
+
+<!-- Footer -->
+<footer class="page-footer font-small  pt-4 btn-dark" >
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">Price Comparison Tool</h5>
+        <p>Here you can compare prices of a product on various e-commerce platforms.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">E-commerce sites</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Amazon</a>
+          </li>
+          <li>
+            <a href="#!">Flipkart</a>
+          </li>
+		   <li>
+            <a href="#!">Vijay Sales</a>
+          </li>
+          <li>
+            <a href="#!">Snapdeal</a>
+          </li>
+		  <li>
+            <a href="#!">Paytm Mall</a>
+          </li>
+		  <li>
+            <a href="#!">Gadgets Now</a>
+          </li>
+         
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://www.amazon.com">amazon.com</a>
+          </li>
+          <li>
+            <a href="https://www.flipkart.com">flipkart.com</a>
+          </li>
+          <li>
+            <a href="https://www.vijaysales.com">vijaysales.com</a>
+          </li>
+		  <li>
+			<a href="https://www.snapdeal.com">snapdeal.com</a>
+			</li>
+		  <li>
+			<a href="https://www.paytmmall.com">paytmmall.com</a>
+		  </li>
+		  <li>
+			<a href="https://www.gadgetsnow.com">gadgetsnow.com</a>
+		</li>
+          
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2021 Copyright:
+    <a href=""> Created by Amey</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
